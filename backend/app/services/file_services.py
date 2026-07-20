@@ -13,7 +13,7 @@ def save_file(file:UploadFile):
     file_path=UPLOAD_DIR/unique_filename
     with open (file_path,"wb") as buffer:
         shutil.copyfileobj(file.file,buffer)
-    return unique_filename
+    return file_path
 
 
 
