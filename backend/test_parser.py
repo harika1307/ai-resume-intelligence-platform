@@ -1,15 +1,10 @@
+from app.services.extraction_service import extract_pdf
 from app.parser.resume_parser import parse_resume
 
-text = """
-Harika Nagineni
+extracted_data=extract_pdf("test_data/resume-c.pdf")
+parsed_data=parse_resume(extracted_data)
 
-Email: harika@gmail.com
-College: ee22b123@iitbbs.ac.in
-
-Phone: +91 9876543210
-"""
-
-print(parse_resume(text))
+print(parsed_data)
 
 
 
