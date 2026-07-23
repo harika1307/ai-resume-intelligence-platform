@@ -47,3 +47,24 @@ LINK_KEYWORDS={
     "www",
     "email"
 }
+
+SECTION_HEADERS={
+    "education",
+    "experience",
+    "projects",
+    "certification",
+    "achievements",
+    "languages",
+    "interests",
+    "publications",
+    "summary"
+}
+
+SKILL_SECTION_HEADERS={
+    "skills",
+    "technical skills",
+    "core competencies",
+    "technologies",
+    "tech stack"
+}
+

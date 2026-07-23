@@ -6,14 +6,19 @@
 
 # print(parsed_data)
 
-from app.parser.name_parser import extract_name
+from app.parser.name_parser import extract_name,extract_name_heuristic,extract_name_spacy
 with open("tests/data/test_resume.txt","r",encoding="utf-8") as f:
     text=f.read()
 
-name = extract_name(text)
+print("=" * 40)
+print("Heuristic")
+print(extract_name_heuristic(text))
 
 print("=" * 40)
-print("Extracted Name")
+print("spaCy")
+print(extract_name_spacy(text))
+
 print("=" * 40)
-print(name)
+print("Final")
+print(extract_name(text))
 

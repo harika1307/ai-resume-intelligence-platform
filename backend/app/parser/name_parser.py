@@ -1,5 +1,6 @@
 from app.core.constants import TOP_LINES_TO_CHECK,STOP_WORDS,EDUCATION_KEYWORDS,LINK_KEYWORDS,WORD_COUNT_SCORES
-
+import spacy
+nlp=spacy.load("en_core_web_sm")
 def score_name_candidate(line: str)->int:
     score=0
     words=line.split()
@@ -30,7 +31,8 @@ def score_name_candidate(line: str)->int:
             score-=5
             break
     return score
-def extract_name(text: str)->str | None:
+
+def extract_name_heuristic(text: str)->str | None:
     lines=text.splitlines()
     candidate_lines=lines[:TOP_LINES_TO_CHECK]
     best_name=None
@@ -43,6 +45,21 @@ def extract_name(text: str)->str | None:
             best_score=score
             best_name=line
     return best_name
+
+def extract_name_spacy(text: str)->str | None:
+    doc=nlp(text)
+    for ent in doc.ents:
+        if ent.label_=="PERSON":
+            return ent.text
+    return None
+def extract_name(text: str)->str | None:
+    spacy_name=extract_name_spacy(text)
+    heuristic_name=extract_name_heuristic(text)
+    if spacy_name:
+        return spacy_name
+
+    return heuristic_name
+
 
 
 
