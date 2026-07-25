@@ -1,82 +1,60 @@
-SKILL_DOMAINS=[
-    "programming",
-    "Web Development",
-    "Backend Development",
-    "Frontend Development",
-    "Mobile Development",
-    "Machine Learning",
-    "Deep Learning",
-    "Computer Vision",
-    "Natural Language Processing",
-    "Data Science",
-    "Data Engineering",
-    "Cloud Engineering",
-    "DevOps",
-    "Cybersecurity",
-    "Database",
-    "Operating Systems",
-    "Networking",
-    "Embedded Engineering",
-    "Software Engineering",
-    "Testing",
-    "Other"
-]
+from typing import List,Optional
+from pydantic import BaseModel
 
-RESUME_JSON_SCHEMA = """
-{
-    "skills": [
-        {
-            "name": "",
-            "domain": "",
-            "source": ""
-        }
-    ],
+class Github(BaseModel):
+    profile: Optional[str]=None
+    repositories: List[str]=[]
 
-    "education": [
-        {
-            "degree": "",
-            "field_of_study": "",
-            "institution": "",
-            "location": "",
-            "cgpa": "",
-            "start_year": "",
-            "end_year": ""
-        }
-    ],
+class Skill(BaseModel):
+    name: str
+    domain: str
+    source: str
 
-    "experience": [
-        {
-            "company": "",
-            "role": "",
-            "employment_type": "",
-            "location": "",
-            "start_date": "",
-            "end_date": "",
-            "currently_working": false,
-            "description": "",
-            "skills_used": []
-        }
-    ],
+class Education(BaseModel):
+    degree: str
+    field_of_study: str
+    institution: str
+    location: str
+    cgpa: str
+    start_year: str
+    end_year: str
 
-    "projects": [
-        {
-            "title": "",
-            "description": "",
-            "skills_used": [],
-            "github": "",
-            "live_demo": "",
-            "duration": ""
-        }
-    ],
+class Experience(BaseModel):
+    company: str
+    role: str
+    employment_type: str
+    location: str
+    start_date: str
+    end_date: str
+    currently_working: bool
+    description: str
+    skills_used: List[str]
 
-    "certifications": [
-        {
-            "name": "",
-            "issuer": "",
-            "issue_date": "",
-            "credential_id": "",
-            "credential_url": ""
-        }
-    ]
-}
-"""
+class Project(BaseModel):
+    title: str
+    description: str
+    skills_used: List[str]
+    github: str
+    live_demo: str
+    duration: str
+
+class Certification(BaseModel):
+    name: str
+    issuer: str
+    issue_date: str
+    credential_id: str
+    credential_url: str
+
+class Resume(BaseModel):
+    name: str
+    emails: List[str]
+    phones: List[str]
+    github: Github
+    linkedin: Optional[str]=None
+    leetcode: Optional[str]=None
+    portfolio: Optional[str]=None
+    skills: List[Skill]
+    education: List[Education]
+    experience: List[Experience]
+    projects: List[Project]
+    certifications: List[Certification]

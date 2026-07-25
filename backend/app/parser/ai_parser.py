@@ -1,7 +1,8 @@
 from app.prompts.resume_parser_prompt import build_resume_parser_prompt
 from app.llm.gemini_client import generate_content
 import json
-from backend.app.exceptions.llm_exceptions import LLMResponseError
+from app.exceptions.llm_exceptions import LLMResponseError
+from app.parser.validator import validate_ai_response
 def parse_response(response: str) -> dict:
     try:
         response=response.strip()
@@ -15,4 +16,5 @@ def extract_ai_data(resume_text: str)->dict:
     prompt=build_resume_parser_prompt(resume_text)
     raw_response=generate_content(prompt)
     parsed_response=parse_response(raw_response)
-    return parsed_response
+    validate_response=validate_ai_response(parsed_response)
+    return validate_response

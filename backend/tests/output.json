@@ -1,0 +1,225 @@
+{
+    "name": "Tarra Sathwik",
+    "emails": [
+        "23ec01047@iitbbs.ac.in"
+    ],
+    "phones": [],
+    "github": {
+        "profile": "https://github.com/Sathwik182079",
+        "repositories": [
+            "https://github.com/Sathwik182079/RISCV-5stage-Processor",
+            "https://github.com/Sathwik182079/I2C-Master-Slave-Controller",
+            "https://github.com/Sathwik182079/add-sub-of-bfloat-16",
+            "https://github.com/Sathwik182079/FIFO_verilog"
+        ]
+    },
+    "linkedin": "https://www.linkedin.com/in/sathwik-tarra-368b7a2b8",
+    "leetcode": "https://leetcode.com/u/Sa18207",
+    "portfolio": null,
+    "mail": "23EC01047@iitbbs.ac.in",
+    "skills": [
+        {
+            "name": "C",
+            "domain": "programming",
+            "source": "Key Skills"
+        },
+        {
+            "name": "C++",
+            "domain": "programming",
+            "source": "Key Skills"
+        },
+        {
+            "name": "Python",
+            "domain": "programming",
+            "source": "Key Skills"
+        },
+        {
+            "name": "CUDA",
+            "domain": "programming",
+            "source": "Key Skills"
+        },
+        {
+            "name": "Verilog HDL",
+            "domain": "Embedded Engineering",
+            "source": "Key Skills"
+        },
+        {
+            "name": "Matlab",
+            "domain": "programming",
+            "source": "Key Skills"
+        },
+        {
+            "name": "RTL Design",
+            "domain": "Embedded Engineering",
+            "source": "Key Skills"
+        },
+        {
+            "name": "Digital Logic Design",
+            "domain": "Embedded Engineering",
+            "source": "Key Skills"
+        },
+        {
+            "name": "Computer Architecture",
+            "domain": "Embedded Engineering",
+            "source": "Key Skills"
+        },
+        {
+            "name": "GPU architecture",
+            "domain": "Embedded Engineering",
+            "source": "Key Skills"
+        },
+        {
+            "name": "RISC-V Processor Design",
+            "domain": "Embedded Engineering",
+            "source": "Key Skills"
+        },
+        {
+            "name": "Parallel Programming",
+            "domain": "Software Engineering",
+            "source": "Key Skills"
+        },
+        {
+            "name": "Xilinx Vivado",
+            "domain": "Embedded Engineering",
+            "source": "Key Skills"
+        },
+        {
+            "name": "Cadence Virtuoso",
+            "domain": "Embedded Engineering",
+            "source": "Key Skills"
+        },
+        {
+            "name": "Cadence Innovus",
+            "domain": "Embedded Engineering",
+            "source": "Key Skills"
+        },
+        {
+            "name": "Cadence Voltus",
+            "domain": "Embedded Engineering",
+            "source": "Key Skills"
+        },
+        {
+            "name": "Synopsys PrimeTime",
+            "domain": "Embedded Engineering",
+            "source": "Key Skills"
+        },
+        {
+            "name": "Synopsys HSPICE",
+            "domain": "Embedded Engineering",
+            "source": "Key Skills"
+        }
+    ],
+    "education": [
+        {
+            "degree": "B.Tech.",
+            "field_of_study": "Electronics and Computer Science Engineering",
+            "institution": "Indian Institute of Technology, Bhubaneswar",
+            "location": "",
+            "cgpa": "7.26",
+            "start_year": "2023",
+            "end_year": "Present"
+        },
+        {
+            "degree": "Senior School Certificate Examination",
+            "field_of_study": "",
+            "institution": "Sri Chaitanya College",
+            "location": "",
+            "cgpa": "94%",
+            "start_year": "2021",
+            "end_year": "2023"
+        },
+        {
+            "degree": "Secondary School Examination",
+            "field_of_study": "",
+            "institution": "Dr KKR Gowtham High School",
+            "location": "",
+            "cgpa": "99.9%",
+            "start_year": "2016",
+            "end_year": "2021"
+        }
+    ],
+    "experience": [
+        {
+            "company": "IIT Bhubaneswar",
+            "role": "Research Intern",
+            "employment_type": "",
+            "location": "",
+            "start_date": "May 2026",
+            "end_date": "July 2026",
+            "currently_working": false,
+            "description": "Under Dr. Sandeep Kumar Samal, Department of Electronics and Communication\nGained hands-on experience with the digital ASIC design flow using Cadence Innovus, Voltus, Synopsys PrimeTime, and HSPICE.\nPerformed floorplanning, placement, clock tree synthesis (CTS), routing, and power integrity analysis, Conducted Static Timing Analysis (STA)\nSimulated CMOS circuits using HSPICE and worked in a Linux-based EDA environment for design, analysis, and debugging.",
+            "skills_used": [
+                "Cadence Innovus",
+                "Cadence Voltus",
+                "Synopsys PrimeTime",
+                "HSPICE",
+                "Linux",
+                "EDA",
+                "ASIC",
+                "STA",
+                "CMOS"
+            ]
+        },
+        {
+            "company": "IIT Bhubaneswar",
+            "role": "Research Intern",
+            "employment_type": "",
+            "location": "",
+            "start_date": "May 2025",
+            "end_date": "July 2025",
+            "currently_working": false,
+            "description": "Under Dr. Devashree Tripathy, Department of Computer Science\nGained in-depth expertise in GPU architecture and CUDA’s software programming interface, and leveraged new features of the latest H100 GPUs to optimize and accelerate existing applications.\nDeveloped and executed CUDA benchmarking scripts for NVIDIA H100 GPUs to analyze and optimize parallel computing performance.",
+            "skills_used": [
+                "GPU architecture",
+                "CUDA",
+                "Parallel Programming",
+                "NVIDIA H100"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "title": "5-Stage Pipelined RISC-V Processor",
+            "description": "Designed a 32-bit 5-stage pipelined RISC-V processor with hazard detection, data forwarding, and branch handling.\nImplemented IF/ID/EX/MEM/WB pipeline, ALU, Register File, Control Unit, Instruction/Data Memory, and pipeline registers in Verilog.",
+            "skills_used": [
+                "Verilog HDL",
+                "Vivado"
+            ],
+            "github": "",
+            "live_demo": "",
+            "duration": ""
+        },
+        {
+            "title": "I²C Master-Slave Controller",
+            "description": "Designed RTL for I²C Master and Slave controllers using Verilog HDL. Implemented START, STOP, repeated START, ACK/NACK, open-drain SDA, and multi-byte read/write transactions.\nDeveloped FSM-based protocol control and clock divider for SCL generation.",
+            "skills_used": [
+                "Verilog",
+                "Vivado"
+            ],
+            "github": "",
+            "live_demo": "",
+            "duration": ""
+        },
+        {
+            "title": "bfloat-16",
+            "description": "This is a project that adds or subtracts two bfloat-16 numbers,implemented on FPGA basys3 board.",
+            "skills_used": [
+                "Verilog"
+            ],
+            "github": "",
+            "live_demo": "",
+            "duration": ""
+        },
+        {
+            "title": "Asynchronous FIFO",
+            "description": "This project implements an Asynchronous FIFO (First-In First-Out) using Verilog HDL.",
+            "skills_used": [
+                "Verilog"
+            ],
+            "github": "",
+            "live_demo": "",
+            "duration": ""
+        }
+    ],
+    "certifications": []
+}

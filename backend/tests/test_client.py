@@ -1,5 +1,5 @@
 # from google import genai
-# from app.core.config import GOOGLE_API_KEY
+from app.core.config import GOOGLE_API_KEY
 # client=genai.Client(api_key=GOOGLE_API_KEY)
 
 # for model in client.models.list():
@@ -14,6 +14,19 @@
 
 # from app.core.config import GOOGLE_API_KEY
 # from google import genai
+
+# from google import genai
+
+# API_KEY = GOOGLE_API_KEY
+
+# client = genai.Client(api_key=API_KEY)
+
+# response = client.models.generate_content(
+#     model="gemini-3.5-flash",
+#     contents="Say hello"
+# )
+
+# print(response.text)
 
 
 
