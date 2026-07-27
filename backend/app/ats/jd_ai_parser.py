@@ -6,5 +6,4 @@ def extract_jd_ai_data(job_description: str)-> dict:
     jd_prompt=build_jd_prompt(job_description)
     raw_response=generate_content(jd_prompt)
     parsed_response=parse_response(raw_response)
-    validate_response=validate_ai_response(parsed_response)
-    return validate_response
+    return parsed_response
