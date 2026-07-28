@@ -1,11 +1,12 @@
 from fastapi import FastAPI
 from app.database.database import db
 from app.api.resume import router as resume_router
-
-
+from app.api.ats import router as ats_router
+from app.api.feedback import router as feedback_router
 app=FastAPI()
 app.include_router(resume_router)
-
+app.include_router(ats_router)
+app.include_router(feedback_router)
 @app.on_event("startup")
 async def startup_db():
     try:

@@ -6,7 +6,7 @@ import fitz
 def extract_text(file_path):
     file_type=Path(file_path).suffix.lower()
     if file_type=='.pdf':
-        return extract_pdf(file_path)
+        return extract_pdf_text(file_path)
     elif file_type=='.docx':
         return extract_docx(file_path)
     else:
@@ -35,13 +35,13 @@ def extract_pdf_links(file_path):
         pdf.close()
     return all_links
 
-def extract_pdf(file_path):
-    text=extract_pdf_text(file_path)
-    links=extract_pdf_links(file_path)
-    return{
-        "text":text,
-        "links":links
-    }
+# def extract_pdf(file_path):
+#     text=extract_pdf_text(file_path)
+#     links=extract_pdf_links(file_path)
+#     return{
+#         "text":text,
+#         "links":links
+#     }
     
 def extract_docx(file_path):
     document=Document(file_path)

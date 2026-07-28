@@ -1,4 +1,4 @@
-from backend.app.schemas.resume_json_schema import (RESUME_JSON_SCHEMA,SKILL_DOMAINS)
+from app.schemas.resume_json_schema import (RESUME_JSON_SCHEMA,SKILL_DOMAINS)
 
 def build_resume_parser_prompt(resume_text: str)->str:
     role="""You are an expert Applicant Tracking System (ATS) resume parser.""" 
