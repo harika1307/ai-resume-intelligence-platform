@@ -10,8 +10,8 @@ router=APIRouter(
 
 @router.post("/generate")
 async def generate_feedback(file: UploadFile=File(...),job_description: str=Form(...)):
-    resume_json=process_resume(file)
-    jd_json=parse_jd(job_description)
-    ats_report=generate_ats_report(resume_json,jd_json)
-    feedback=generate_ai_feedback(resume_json,jd_json,ats_report)
+    resume_json = process_resume(file)
+    jd_json = parse_jd(job_description)
+    ats_report = generate_ats_report(resume_json,jd_json)
+    feedback = generate_ai_feedback(resume_json,jd_json,ats_report)
     return feedback
