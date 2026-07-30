@@ -20,6 +20,7 @@ class AIFeedback(BaseModel):
     missing_skill_suggestions: List[str]
     interview_questions: List[str]
 
+
 class ATSResponse(BaseModel):
     ats_score:float
     skill_analysis: SkillAnalysis

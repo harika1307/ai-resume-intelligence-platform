@@ -31,18 +31,23 @@ async def analyze_resume(file: UploadFile=File(...),job_description: str=Form(..
             feedback=generate_ai_feedback(parsed_resume,parsed_jd,report)
         except LLMAPIError:
             feedback={
-                "status":"unavailable",
-                "message":"AI feedback service is temporarily unavailable..Please try again after some time."
+                "overall_feedback":"AI feedback service is temporarily unavailable.Please try again later.",
+                "strengths":[],
+                "weaknesses":[],
+                "resume_improvements":[],
+                "keyword_suggestions":[],
+                "missing_skill_suggestions":[],
+                "interview_questions":[]
             }
         return {
             **report,
             "ai_feedback":feedback
         }
-    except Exception:
+    except Exception as e:
         logger.exception("unexpected error while analyzing resume.")
         raise HTTPException(
             status_code=500,
-            detail="Unexpected error"
+            detail="An Unexpected server error occurred."
         )
 @router.get("/health")
 def ats_health():
