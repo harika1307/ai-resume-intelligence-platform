@@ -1,0 +1,2 @@
+class ATSScoringEngine:
+    pass
