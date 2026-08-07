@@ -1,4 +1,5 @@
-from typing import List
+from typing import List,Dict
+import json
 SYSTEM_PROMPT="""You are an expert ATS Resume Assistant."""
 def _format_context(documents: List[str])->str:
     context="\n\n-------------\n\n".join(documents)
@@ -34,10 +35,10 @@ def build_chat_prompt(query: str,documents: List[str])->str:
     ])
     return prompt
 
-def build_resume_summary_prompt(documents: List[str])->str:
+def build_resume_summary_prompt(resume_data: Dict)->str:
     
     instructions=f"""
-    Generate a structured resume summary from the given context.
+    Generate a structured resume summary from the given resume.
     Include relevant sections such as:
     • Professional Summary
     • Technical Skills
@@ -49,23 +50,23 @@ def build_resume_summary_prompt(documents: List[str])->str:
     Only include sections that contain information from the provided resume context.
     Do not create empty sections.
     """
-    context=f"""Resume context:
-    {_format_context(documents)}
+    resume=f"""Resume JSON:
+    {json.dumps(resume_data,indent=2)}
     """
     prompt="\n\n".join([
         SYSTEM_PROMPT,
         instructions,
-        context,
+        resume,
         "Resume Summary:"
     ])
     return prompt
 
 def build_skill_gap_prompt(
-        resume_documents: List[str],job_description: str
+        resume_data: Dict,job_data: Dict
 )->str:
     
     instructions=f"""
-    Use ONLY the provided resume context and job description.
+    Use ONLY the provided resume and job description.
     Compare the candidate's qualifications with the job requirements.
     Generate your response using the following sections:
     1. Matching Skills
@@ -74,29 +75,30 @@ def build_skill_gap_prompt(
     4. Areas for Improvement
     5. Personalized Recommendations
     Do not calculate an ATS score.
+    Focus on explaining the skill gaps and suggesting improvements.
     Do not invent qualifications that are not present.
     If information is insufficient, clearly state it.
     """
-    context=f"""
-    Resume context:
-    {_format_context(resume_documents)}
+    resume=f"""
+    Resume JSON:
+    {json.dumps(resume_data,indent=2)}
     """
     job_description_section=f"""
-    Job Description:
-    {job_description}
+    Job Description JSON:
+    {json.dumps(job_data,indent=2)}
     """
     prompt="\n\n".join([
         SYSTEM_PROMPT,
         instructions,
-        context,
+        resume,
         job_description_section,
         "Response:"
     ])
     return prompt
 
-def build_resume_analysis_prompt(resume_documents: List[str])->str:
+def build_resume_analysis_prompt(resume_data: Dict,ats_score: Dict)->str:
     instructions="""
-    Analyze the candidate's resume using ONLY the provided resume context.
+    Analyze the candidate's resume using ONLY the provided resume and the ATS score provided.
     Generate a structured analysis with the following sections:
     1. Overall Assessment
     2. Technical Skills Assessment
@@ -110,21 +112,27 @@ def build_resume_analysis_prompt(resume_documents: List[str])->str:
     If a section cannot be evaluated due to insufficient information, state that clearly.
     Keep the analysis professional and concise.
     """
-    context=f"""
-    Resume context:
-    {_format_context(resume_documents)}
+    resume=f"""
+    Resume JSON:
+    {json.dumps(resume_data,indent=2)}
+    """
+    ats = f"""
+    ATS Analysis:
+    {json.dumps(ats_score, indent=2)}
     """
     prompt="\n\n".join([
         SYSTEM_PROMPT,
         instructions,
-        context,
+        resume,
+        ats,
         "Response:"
     ])
+    return prompt
 
-def build_interview_prompt(resume_documents: List[str],job_description: str)->str:
+def build_interview_prompt(resume_data: Dict,jd_data: Dict)->str:
     role="""You are an expert technical interviewer."""
     instructions="""
-    Use ONLY the provided resume context and job description.
+    Use ONLY the provided resume and job description.
     Generate interview questions tailored to the candidate and the target job role.
     Organize the response into the following sections:
     1. Technical Questions (5)
@@ -141,18 +149,19 @@ def build_interview_prompt(resume_documents: List[str],job_description: str)->st
     focus questions on the job-relevant skills while also highlighting important skill gaps.
     Do not generate questions unrelated to the provided resume or job description.
     """
-    context=f"""
-    Resume context:
-    {_format_context(resume_documents)}
+    resume=f"""
+    Resume JSON:
+    {json.dumps(resume_data,indent=2)}
     """
     job_description_section=f"""
-    Job Description:
-    {job_description}
+    Job Description JSON:
+    {json.dumps(jd_data,indent=2)}
     """
     prompt="\n\n".join([
+        SYSTEM_PROMPT,
         role,
         instructions,
-        context,
+        resume,
         job_description_section,
         "Response:"
     ])

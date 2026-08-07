@@ -8,8 +8,8 @@ class ATSScoringEngine:
     EXPERIENCE_WEIGHT=0.20
     EDUCATION_WEIGHT=0.10
     COMPLETENESS_WEIGHT=0.10
-    PROJECT_SIMILARITY_THRESHOLD = 0.80
-    EXPERIENCE_SIMILARITY_THRESHOLD = 0.80
+    PROJECT_SIMILARITY_THRESHOLD = 0.45
+    EXPERIENCE_SIMILARITY_THRESHOLD = 0.50
     DEGREE_WEIGHT = 0.70
     FIELD_WEIGHT = 0.30
     DEGREE_NORMALIZATION = {
@@ -72,9 +72,13 @@ class ATSScoringEngine:
         
         relevant_projects=[]
         for project in self.resume_data.get("projects",[]):
+            
             project_context=build_project_context(project)
             project_embedding=self.embedding_service.embed_text(project_context)
             similarity=get_similarity_score(project_embedding,jd_embedding)
+            print(project["title"])
+            print(similarity)
+            print("-" * 40)
             if similarity>=self.PROJECT_SIMILARITY_THRESHOLD:
                 relevant_projects.append({
                     "project":project,
@@ -99,6 +103,9 @@ class ATSScoringEngine:
             experience_context=build_experience_context(experience)
             experience_embedding=self.embedding_service.embed_text(experience_context)
             similarity=get_similarity_score(experience_embedding,jd_embedding)
+            print(experience["role"])
+            print(similarity)
+            print("-" * 40)
             if similarity>=self.EXPERIENCE_SIMILARITY_THRESHOLD:
                 relevant_experiences.append({
                     "experience":experience,
