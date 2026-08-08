@@ -35,8 +35,8 @@ class Chunker:
     def token_chunk(self):
         pass
 
-chunker = Chunker(chunk_size=5,overlap=2)
-text = "ABCDEFGHIJKLMNO"
-chunks = chunker.chunk_text(text)
+# chunker = Chunker(chunk_size=5,overlap=2)
+# text = "ABCDEFGHIJKLMNO"
+# chunks = chunker.chunk_text(text)
 
-print(chunks)
+# print(chunks)
